@@ -1,0 +1,3 @@
+Filament user logs: https://filamentphp.com/plugins/rmsramos-activitylog
+Filament media library: https://filamentphp.com/plugins/awcodes-curator
+Generador de menus: https://filamentphp.com/plugins/solution-forest-tree
