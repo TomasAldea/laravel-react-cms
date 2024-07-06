@@ -56,7 +56,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 ActivitylogPlugin::make(),
-                \Awcodes\Curator\CuratorPlugin::make()
+                \Awcodes\Curator\CuratorPlugin::make(),
+                \FilipFonal\FilamentLogManager\FilamentLogManager::make(),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
