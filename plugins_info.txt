@@ -3,3 +3,4 @@ Filament media library: https://filamentphp.com/plugins/awcodes-curator
 Generador de menus: https://filamentphp.com/plugins/solution-forest-tree
 System logs: https://filamentphp.com/plugins/filip-fonal-log-manager
 Multidioma: https://filamentphp.com/plugins/bezhansalleh-language-switch
+Quickly navigate your Filament Resources: https://filamentphp.com/plugins/pxlrbt-spotlight

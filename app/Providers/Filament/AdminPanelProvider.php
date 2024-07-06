@@ -19,6 +19,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rmsramos\Activitylog\ActivitylogPlugin;
+use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -58,6 +59,7 @@ class AdminPanelProvider extends PanelProvider
                 ActivitylogPlugin::make(),
                 \Awcodes\Curator\CuratorPlugin::make(),
                 \FilipFonal\FilamentLogManager\FilamentLogManager::make(),
+                SpotlightPlugin::make(),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
