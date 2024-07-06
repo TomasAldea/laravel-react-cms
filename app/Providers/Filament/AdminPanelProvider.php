@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Resources\MenuWebResource\Widgets\MenuWebWidget;
+// use App\Filament\Resources\MenuWebResource\Widgets\MenuWebWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -42,7 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
-                MenuWebWidget::class
+                //MenuWebWidget::class
             ])
             ->middleware([
                 EncryptCookies::class,
