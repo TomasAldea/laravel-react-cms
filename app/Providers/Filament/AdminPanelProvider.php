@@ -51,6 +51,18 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->plugins([
+                \Awcodes\Curator\CuratorPlugin::make()
+                    ->label('Media')
+                    ->pluralLabel('Media')
+                    ->navigationIcon('heroicon-o-photo')
+                    ->navigationGroup('Content')
+                    ->navigationSort(3)
+                    ->navigationCountBadge()
+                    ->registerNavigation(false)
+                    ->defaultListView('grid' || 'list')
+                    /* ->resource(\App\Filament\Resources\CustomMediaResource::class) */
+            ])
             ->authMiddleware([
                 Authenticate::class,
             ]);
