@@ -20,7 +20,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Fieldset;
-
+use Filament\Forms\Components\Placeholder;
+use Illuminate\Support\HtmlString;
 
 class PageResource extends Resource
 {
@@ -70,6 +71,10 @@ class PageResource extends Resource
                                         break;
                                 }
                             }),
+                        Placeholder::make('Image')
+                            ->content(function (): HtmlString {
+                                return new HtmlString("<img style='width: 400px' src='http://127.0.0.1:8000/imagesPanel/ejemplo.png')>");
+                            }),
                         TextInput::make('content.title')
                             ->required()
                             ->hidden(fn (callable $get) => $get('type') !== 'header'),
@@ -85,6 +90,8 @@ class PageResource extends Resource
                             ->hidden(fn (callable $get) => $get('type') !== 'text'),
                         TextInput::make('content.caption')
                             ->hidden(fn (callable $get) => $get('type') !== 'image'),
+
+
                     ])
                     ->columnSpan('full')
                     ->createItemButtonLabel('Add Module')
