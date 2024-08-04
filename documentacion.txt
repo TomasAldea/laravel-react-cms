@@ -1,0 +1,1 @@
+si las imagenes no se guardan bien: php artisan storage:link

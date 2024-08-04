@@ -17,6 +17,15 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use pxlrbt\FilamentSpotlight\SpotlightPlugin;
+use Rmsramos\Activitylog\ActivitylogPlugin;
+
+/* 
+Documentaciones
+
+https://filamentphp.com/plugins/awcodes-curator
+https://filamentphp.com/plugins/rmsramos-activitylog
+*/
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -40,6 +49,7 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -59,9 +69,11 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationGroup('Content')
                     ->navigationSort(3)
                     ->navigationCountBadge()
-                    ->registerNavigation(false)
-                    ->defaultListView('grid' || 'list')
-                    /* ->resource(\App\Filament\Resources\CustomMediaResource::class) */
+                    ->registerNavigation(true)
+                    ->defaultListView('grid' || 'list'),
+                \FilipFonal\FilamentLogManager\FilamentLogManager::make(),
+                SpotlightPlugin::make(),
+                ActivitylogPlugin::make(),
             ])
             ->authMiddleware([
                 Authenticate::class,

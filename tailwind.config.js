@@ -9,6 +9,7 @@ export default {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
         './vendor/awcodes/filament-curator/resources/**/*.blade.php',
+        `resources/css/filament/admin/theme.css`
     ],
 
     theme: {

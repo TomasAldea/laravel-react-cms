@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
+use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -82,14 +83,16 @@ class PageResource extends Resource
                             ->hidden(fn (callable $get) => $get('type') !== 'header'),
                         TextInput::make('content.link')
                             ->hidden(fn (callable $get) => $get('type') !== 'header'),
-                        TextInput::make('content.image_url')
-                            ->required()
-                            ->hidden(fn (callable $get) => $get('type') !== 'header' && $get('type') !== 'image'),
                         RichEditor::make('content.content')
                             ->required()
                             ->hidden(fn (callable $get) => $get('type') !== 'text'),
                         TextInput::make('content.caption')
                             ->hidden(fn (callable $get) => $get('type') !== 'image'),
+
+                        CuratorPicker::make('media')
+                            ->constrained(true | false) // defaults to false (forces image to fit inside the preview area)
+                            ->acceptedFileTypes(['image/jpeg', 'image/png'])
+                            ->multiple(),
 
 
                     ])
